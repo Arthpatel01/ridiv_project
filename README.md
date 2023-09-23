@@ -1,6 +1,6 @@
 # Invoice and Invoice Detail Management API
 
----------------------
+----------------------
 ### 1: Create a virtual environment and activate it:
 `python -m venv venv`
 
