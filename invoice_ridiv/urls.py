@@ -17,13 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from invoices.views import InvoiceViewSet, InvoiceDetailViewSet
+from invoices.views import InvoiceAPIView
 
-router = DefaultRouter()
-router.register(r'invoices', InvoiceViewSet, basename='invoice-create')
-router.register('invoice-details', InvoiceDetailViewSet)
+# router = DefaultRouter()
+# router.register(r'invoices', InvoiceViewSet, basename='invoice-create')
+# router.register('invoice-details', InvoiceDetailViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    # path('api/', include(router.urls)),
+    path('api/invoices/', InvoiceAPIView.as_view(), name='invoice-api'),
+    path('api/invoices/<pk>', InvoiceAPIView.as_view(), name='invoice-api'),
 ]

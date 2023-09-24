@@ -26,18 +26,47 @@
 ----------------------
 
 ## API Endpoints
-### Invoices
+### Create content format:
+``url: /api/invoices/``
+```
+{
+    "date": "2023-09-24",
+    "customer_name": "Virat Kohli",
+    "details": [
+        {
+            "description": "Product 1",
+            "quantity": 10,
+            "unit_price": "10.99",
+            "price": "54.95"
+        }
+    ]
+}
+```
 
-1. GET /api/invoices/: List all invoices.
-2. POST /api/invoices/: Create a new invoice. 
-3. GET /api/invoices/{id}/: Retrieve details of a specific invoice. 
-4. PUT /api/invoices/{id}/: Update a specific invoice. 
-5. DELETE /api/invoices/{id}/: Delete a specific invoice.
 
+### Update content format:
+``url: /api/invoices/``
+```
+{
+    "pk": 9,
+    "date": "2023-09-24",
+    "customer_name": "MS Dhoni",
+    "details": [
+        {
+            "pk":4,
+            "description": "MRF Bat",
+            "quantity": 10,
+            "unit_price": "10.99",
+            "price": "54.95"
+        }
+    ]
+}
+```
 
-### Invoice Details
-1. GET /api/invoice-details/: List all invoice details.
-2. POST /api/invoice-details/: Create a new invoice detail. 
-3. GET /api/invoice-details/{id}/: Retrieve details of a specific invoice detail. 
-4. PUT /api/invoice-details/{id}/: Update a specific invoice detail. 
-5. DELETE /api/invoice-details/{id}/: Delete a specific invoice detail.
+### Delete with pk as parameter:
+``url: /api/invoices/<primary-key>``
+```
+1. http://127.0.0.1:9000/api/invoices/9
+2. Then hit delete button
+
+```
